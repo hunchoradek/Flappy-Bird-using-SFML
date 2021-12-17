@@ -1,0 +1,17 @@
+﻿  Pipe.cpp
+C:\Users\huuncho\Desktop\SFML Group\SFML Template\SFML Template\Pipe.cpp(12,45): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\huuncho\Desktop\SFML Group\SFML Template\SFML Template\Pipe.cpp(19,45): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\huuncho\Desktop\SFML Group\SFML Template\SFML Template\Pipe.cpp(26,45): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+  SFML Template.vcxproj -> C:\Users\huuncho\Desktop\SFML Group\SFML Template\x64\Debug\SFML Template.exe
