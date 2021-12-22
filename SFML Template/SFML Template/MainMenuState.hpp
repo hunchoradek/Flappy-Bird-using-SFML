@@ -4,22 +4,20 @@
 #include "state.hpp"
 #include "Game.hpp"
 
-namespace huncho
-{
-	class MainMenuState : public State {
-	public:
-		MainMenuState(GameDataRef data);
+class MainMenuState : public State {
+public:
+	MainMenuState(GameDataRef data);
 
-		void Init();
+	void Init();
 
-		void HandleInput();
-		void Update(float dt);
-		void Draw(float dt);
+	void HandleInput();
+	void Update(float dt);
+	void Draw(float dt);
 
-	private:
-		GameDataRef _data;
-		sf::Sprite _background;
-		sf::Sprite _title;
-		sf::Sprite _playbutton;
-	};
-}
+private:
+	GameDataRef _data;
+	sf::Sprite _background;
+	sf::Sprite _title;
+	sf::Sprite _playbutton;
+};
+

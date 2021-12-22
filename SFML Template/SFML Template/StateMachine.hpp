@@ -5,29 +5,25 @@
 
 #include "State.hpp"
 
-namespace huncho
+typedef std::unique_ptr<State> StateRef;
+
+class StateMachine
 {
-	typedef std::unique_ptr<State> StateRef;
+public:
+	StateMachine() {}
+	~StateMachine() {}
 
-	class StateMachine
-	{
-	public:
-		StateMachine() {}
-		~StateMachine() {}
+	void AddState(StateRef newState, bool isReplacing = true);
+	void RemoveState();
+	void ProccesStateChanges();
 
-		void AddState(StateRef newState, bool isReplacing = true);
-		void RemoveState();
+	StateRef &GetActiveState();
 
-		void ProccesStateChanges();
+private:
+	std::stack<StateRef> _states;
+	StateRef _newState;
 
-		StateRef &GetActiveState();
-
-	private:
-		std::stack<StateRef> _states;
-		StateRef _newState;
-
-		bool _isRemoving;
-		bool _isAdding;
-		bool _isReplacing;
-	};
-}
+	bool _isRemoving;
+	bool _isAdding;
+	bool _isReplacing;
+};
