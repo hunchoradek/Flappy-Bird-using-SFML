@@ -4,6 +4,7 @@
 #include "state.hpp"
 #include "Game.hpp"
 #include "Pipe.hpp"
+#include "Land.hpp"
 
 class GameState : public State {
 public:
@@ -20,4 +21,5 @@ private:
 	sf::Texture _backgroundTexture;
 	sf::Sprite _background;
 	Pipe* pipe;
+	Land* land;
 };

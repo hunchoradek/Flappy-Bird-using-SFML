@@ -2,19 +2,20 @@
 #include <iostream>
 
 Pipe::Pipe(GameDataRef data) : _data(data) {
-
+	_landHeight = _data->assets.GetTexture("Land").getSize().y;
+	odleglosc = 0;
 }
 void Pipe::SpawBottomPipe() {
 	sf::Sprite sprite(_data->assets.GetTexture("PipeUp"));
 
-	sprite.setPosition(_data->window.getSize().x, _data->window.getSize().y - sprite.getGlobalBounds().height);
+	sprite.setPosition(_data->window.getSize().x, _data->window.getSize().y - sprite.getGlobalBounds().height - odleglosc);
 
 	pipeSprites.push_back(sprite);
 };
 void Pipe::SpawnTopPipe() {
 	sf::Sprite sprite(_data->assets.GetTexture("PipeDown"));
 
-	sprite.setPosition(_data->window.getSize().x, 0);
+	sprite.setPosition(_data->window.getSize().x, - odleglosc);
 
 	pipeSprites.push_back(sprite);
 };
@@ -40,4 +41,7 @@ void Pipe::DrawPipes() {
 	for (unsigned short int i = 0; i < pipeSprites.size(); i++) {
 		_data->window.draw(pipeSprites.at(i));
 	}
+}
+void Pipe::RandomisePipeOffset() {
+	odleglosc = rand() % (_landHeight + 1);
 }
