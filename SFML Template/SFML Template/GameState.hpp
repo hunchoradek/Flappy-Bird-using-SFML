@@ -5,6 +5,7 @@
 #include "Game.hpp"
 #include "Pipe.hpp"
 #include "Land.hpp"
+#include "Bird.hpp"
 
 class GameState : public State {
 public:
@@ -22,4 +23,5 @@ private:
 	sf::Sprite _background;
 	Pipe* pipe;
 	Land* land;
+	Bird* bird;
 };
