@@ -35,3 +35,11 @@ constexpr auto GRAVITY = 350.0f;
 constexpr auto FLYING_SPEED = 350.0f;
 
 constexpr auto FLYING_DURATION = 0.25f;
+
+constexpr auto ROTATION_SPEED = 100.0f;
+
+enum GameStates {
+	eReady,
+	ePlaying,
+	eGameOver
+};

@@ -6,6 +6,7 @@
 #include "Pipe.hpp"
 #include "Land.hpp"
 #include "Bird.hpp"
+#include "Collision.hpp"
 
 class GameState : public State {
 public:
@@ -24,4 +25,7 @@ private:
 	Pipe* pipe;
 	Land* land;
 	Bird* bird;
+	Collision collision;
+
+	int _gameState;
 };

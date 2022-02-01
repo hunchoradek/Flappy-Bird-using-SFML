@@ -1,35 +1,4 @@
-﻿  Bird.cpp
-  GameOverState.cpp
-  GameState.cpp
-  Land.cpp
-C:\Users\huuncho\Desktop\SFML Group\Flappy-Bird-using-SFML\SFML Template\SFML Template\Land.cpp(20,49): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
+﻿  GameState.cpp
   MainMenuState.cpp
-  Pipe.cpp
-C:\Users\huuncho\Desktop\SFML Group\Flappy-Bird-using-SFML\SFML Template\SFML Template\Pipe.cpp(11,44): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-C:\Users\huuncho\Desktop\SFML Group\Flappy-Bird-using-SFML\SFML Template\SFML Template\Pipe.cpp(18,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\huuncho\Desktop\SFML Group\Flappy-Bird-using-SFML\SFML Template\SFML Template\Pipe.cpp(18,44): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-C:\Users\huuncho\Desktop\SFML Group\Flappy-Bird-using-SFML\SFML Template\SFML Template\Pipe.cpp(25,44): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-  SplashState.cpp
-  main.cpp
   Generating Code...
   SFML Template.vcxproj -> C:\Users\huuncho\Desktop\SFML Group\Flappy-Bird-using-SFML\SFML Template\x64\Debug\SFML Template.exe

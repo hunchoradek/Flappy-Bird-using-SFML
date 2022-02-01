@@ -13,6 +13,7 @@ public:
 	void animate(float dt);
 	void Update(float dt);
 	void Tap();
+	const sf::Sprite& GetSprite() const;
 private:
 	GameDataRef _data;
 
@@ -25,4 +26,6 @@ private:
 	sf::Clock _movementClock;
 
 	int _birdstate;
+
+	float _rotation;
 };
