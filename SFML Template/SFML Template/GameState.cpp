@@ -1,6 +1,7 @@
 #include <sstream>
 #include "GameState.hpp"
 #include "DEFINITIONS.hpp"
+#include "GameOverState.hpp"
 
 #include <iostream>
 
@@ -17,12 +18,20 @@ void GameState::Init() {
 	_data->assets.LoadTexture("2klatka", BIRD_FRAME_2_FILEPATH);
 	_data->assets.LoadTexture("3klatka", BIRD_FRAME_3_FILEPATH);
 	_data->assets.LoadTexture("4klatka", BIRD_FRAME_4_FILEPATH);
+	_data->assets.LoadTexture("Scoring Pipe", SCORING_PIPE_FILEPATH);
+	_data->assets.LoadFont("Flappy Font", FLAPPY_FONT_FILEPATH);
+	
 
 	pipe = new Pipe(_data);
 	land = new Land(_data);
 	bird = new Bird(_data);
+	flash = new Flash(_data);
+	hud = new HUD(_data);
 
 	_background.setTexture(this->_data->assets.GetTexture("Game Background"));
+
+	_score = 0;
+	hud->UpdateScore(_score);
 
 	_gameState = GameStates::eReady;
 }
@@ -57,6 +66,7 @@ void GameState::Update(float dt) {
 			pipe->SpawnInvisiblePipe();
 			pipe->SpawBottomPipe();
 			pipe->SpawnTopPipe();
+			pipe->SpawnScoringPipe();
 
 			clock.restart();
 		}
@@ -67,6 +77,8 @@ void GameState::Update(float dt) {
 		for (int i = 0; i < pipeSprites.size(); i++) {
 			if (collision.CheckSpriteCollisionNew(bird->GetSprite(), 0.625f,  pipeSprites.at(i), 1.0f)) {
 				_gameState = GameStates::eGameOver;
+
+				clock.restart();
 			}
 		}
 
@@ -75,9 +87,34 @@ void GameState::Update(float dt) {
 		for (int i = 0; i < landSprites.size(); i++) {
 			if (collision.CheckSpriteCollision(bird->GetSprite(), landSprites.at(i))) {
 				_gameState = GameStates::eGameOver;
+
+				clock.restart();
+			}
+		}
+
+		if (GameStates::ePlaying == _gameState) {
+			std::vector<sf::Sprite>& scoringSprites = pipe->GetScoringSprites();
+
+			for (int i = 0; i < scoringSprites.size(); i++) {
+				if (collision.CheckSpriteCollisionNew(bird->GetSprite(), 0.625f, scoringSprites.at(i), 1.0f)) {
+					_score++;
+
+					//std::cout << _score << std::endl;
+					hud->UpdateScore(_score);
+
+					scoringSprites.erase(scoringSprites.begin() + i);
+				}
 			}
 		}
 	}
+
+	if (GameStates::eGameOver == _gameState) {
+		flash->Show(dt);
+		if (clock.getElapsedTime().asSeconds() > TIME_BEFORE_GAME_OVER_APPEARS) {
+			_data->machine.AddState(StateRef(new GameOverState(_data, _score)), true);
+		}
+	}
+		
 
 }
 
@@ -88,6 +125,9 @@ void GameState::Draw(float dt) {
 	pipe->DrawPipes();
 	land->DrawLand();
 	bird->draw();
+	flash->Draw();
+
+	hud->Draw();
 
 	_data->window.display();
 }

@@ -15,6 +15,7 @@ constexpr auto PLAY_BUTTON_FILEPATH = "Resources/res/PlayButton.png";
 
 constexpr auto PIPE_UP_FILEPATH = "Resources/res/PipeUp.png";
 constexpr auto PIPE_DOWN_FILEPATH = "Resources/res/PipeDown.png";
+constexpr auto SCORING_PIPE_FILEPATH = "Resources/res/InvisibleScoringPipe.png";
 
 constexpr auto LAND_FILEPATH = "Resources/res/Land.png";
 
@@ -22,6 +23,16 @@ constexpr auto BIRD_FRAME_1_FILEPATH = "Resources/res/bird-01.png";
 constexpr auto BIRD_FRAME_2_FILEPATH = "Resources/res/bird-02.png";
 constexpr auto BIRD_FRAME_3_FILEPATH = "Resources/res/bird-03.png";
 constexpr auto BIRD_FRAME_4_FILEPATH = "Resources/res/bird-04.png";
+
+constexpr auto FLAPPY_FONT_FILEPATH = "Resources/fonts/FlappyFont.ttf";
+
+constexpr auto GAME_OVER_TITLE_FILEPATH = "Resources/res/Game-Over-Title.png";
+constexpr auto GAME_OVER_BODY_FILEPATH = "Resources/res/Game-Over-Body.png";
+
+constexpr auto BRONZE = "Resources/res/Bronze-Medal.png";
+constexpr auto SILVER = "Resources/res/Silver-Medal.png";
+constexpr auto GOLD = "Resources/res/Gold-Medal.png";
+constexpr auto PLATINIUM = "Resources/res/Platinum-Medal.png";
 
 constexpr auto PIPE_MOVEMENT_SPEED = 200.0f;
 constexpr auto PIPE_SPAWN_FREQUENCY = 3.0f;
@@ -43,3 +54,7 @@ enum GameStates {
 	ePlaying,
 	eGameOver
 };
+
+constexpr auto FLASH_SPEED = 1500.0f;
+
+constexpr auto TIME_BEFORE_GAME_OVER_APPEARS = 1.5f;
