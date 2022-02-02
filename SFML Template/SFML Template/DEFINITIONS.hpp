@@ -3,7 +3,6 @@
 constexpr auto SCREEN_WIDTH = 768;
 constexpr auto SCREEN_HEIGHT = 1024;
 
-constexpr auto SPLASH_STATE_SHOW_TIME = 3.0;
 
 constexpr auto SPLASH_SCENE_BACKGROUND_FILEPATH = "Resources/res/splash.png";
 constexpr auto MAIN_MENU_BACKGROUND_FILEPATH = "Resources/res/sky.png";
